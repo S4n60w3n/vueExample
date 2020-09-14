@@ -1,29 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+    <div class="loaderWrap">
+      <Loader :currentValue="0" :maxValue="100" />
+      <Loader :currentValue="39" :maxValue="100" />
+      <Loader :currentValue="13" :maxValue="37" />
+      <Loader :currentValue="8" :maxValue="15" label="Label" />
+    </div>
+    <div class="loaderWrap">
+      <Loader :currentValue="0" :maxValue="100" compact />
+      <Loader :currentValue="42" :maxValue="100" compact />
+      <Loader :currentValue="42" :maxValue="73" label="Label" compact />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import HelloWorld from "./components/HelloWorld.vue";
+import Loader from "./components/Loader.vue";
 
 export default Vue.extend({
   name: "App",
   components: {
-    HelloWorld
+    Loader
   }
 });
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 100px 15%;
+  box-sizing: border-box;
+}
+.loaderWrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 </style>
